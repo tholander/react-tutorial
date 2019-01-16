@@ -1,3 +1,8 @@
+---
+layout: post
+title: "Let's get started"
+---
+
 # Let's get started !
 
 Pour l'instant, on va essayer de construire une page qui nous permettra de visualiser la liste des dépôts populaires sur GitHub. Pour ça, GitHub possède une API REST publique, qui va nous permettre de faire un peu joujou.
@@ -9,7 +14,7 @@ Mais comme une API REST n'est utilisable que via des requêtes HTTP, il va fallo
 Pour garder notre projet structuré, commencez par créer le dossier `src/components` et créez un fichier `RepositoriesList.tsx` dans ce répertoire. Enfin, insérez le contenu suivant dans le fichier.
 
 ```tsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class RepositoriesList extends Component {
   public render() {
@@ -21,7 +26,7 @@ export default RepositoriesList;
 
 On va expliquer ce contenu ligne par ligne.
 
-- ```tsx 
+- ```tsx
   import React from "react";
   ```
 
@@ -51,9 +56,9 @@ On va expliquer ce contenu ligne par ligne.
 
 ```tsx
   import React, { Component } from 'react';
-  
+
   const hello = "Hello World!";
-  
+
   class HelloWorld extends Component {
       public render() {
           return hello;
@@ -63,32 +68,32 @@ On va expliquer ce contenu ligne par ligne.
   export hello;
 ```
 
-  Dans ce cas là, si l'on veut récupérer le composant `HelloWorld` depuis un autre fichier, on peut le faire grâce à la ligne 
+Dans ce cas là, si l'on veut récupérer le composant `HelloWorld` depuis un autre fichier, on peut le faire grâce à la ligne
 
 ```tsx
-  import HelloWorld from './HelloWorld';
+import HelloWorld from "./HelloWorld";
 ```
 
-  En revanche si l'on veut récupérer simplement la variable `hello`, on le faire de la manière suivante
+En revanche si l'on veut récupérer simplement la variable `hello`, on le faire de la manière suivante
 
 ```tsx
-  import { hello } from './HelloWorld';
+import { hello } from "./HelloWorld";
 ```
 
-  Pour résumer, l'export principal d'un fichier (parce qu'il ne peut y avoir qu'un export principal par fichier), peut être récupéré en écrivant le nom de la variable dans laquelle on voudra le contenir. Exemple :
+Pour résumer, l'export principal d'un fichier (parce qu'il ne peut y avoir qu'un export principal par fichier), peut être récupéré en écrivant le nom de la variable dans laquelle on voudra le contenir. Exemple :
 
 ```tsx
-  import HelloWorldComponentDontJaiChangéLeNomParceQueCestPlusJoli from './HelloWorld'
+import HelloWorldComponentDontJaiChangéLeNomParceQueCestPlusJoli from "./HelloWorld";
 ```
 
-  Et les autres exports doivent être récupérés en inscrivant leur vrai nom, entre les symboles `{}`.
+Et les autres exports doivent être récupérés en inscrivant leur vrai nom, entre les symboles `{}`.
 
 ## On va peut être commencer à coder non ?
 
 Revenons en à notre composant `RepositoriesList`. On va créer une interface pour décrire les objets que l'on va récupérer de l'API de GitHub. Ajouter le contenu suivant :
 
 ```tsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export interface GitHubRepo {
   id: number;
@@ -125,9 +130,9 @@ class RepositoriesList extends Component<Props, State> {
   }
 
   public render() {
-    return '';
+    return "";
   }
-  
+
   private static formatUrl(language: string): string {
     return `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc`;
   }
@@ -135,7 +140,7 @@ class RepositoriesList extends Component<Props, State> {
 export default RepositoriesList;
 ```
 
-Ensuite, replacer la méthode `render` par 
+Ensuite, replacer la méthode `render` par
 
 ```tsx
 public render() : JSX.Element[] | string {
@@ -149,15 +154,15 @@ public render() : JSX.Element[] | string {
 }
 ```
 
-Sauvegardez le fichiers, puis retourner dans le fichier `src/App.tsx` et remplacez le contenu par 
+Sauvegardez le fichiers, puis retourner dans le fichier `src/App.tsx` et remplacez le contenu par
 
 ```tsx
-import React, { Component } from 'react';
-import RepositoriesList from './components/RepositoriesList';
+import React, { Component } from "react";
+import RepositoriesList from "./components/RepositoriesList";
 
 class App extends Component {
   public render(): JSX.Element {
-    return <RepositoriesList language='javascript' />;
+    return <RepositoriesList language="javascript" />;
   }
 }
 
@@ -166,17 +171,17 @@ export default App;
 
 Après avoir sauvegardez, retournez voir dans votre navigateur, et vous devriez voir afficher... rien.
 
-![](./images/3.png)
+![](/images/3.png)
 
-C'est parce que la variable `rep`, qui se trouve dans la méthode `render` du composant `RepositoriesList` est un tableau vide. On va donc ajouter une petite condition pour voir ça. Remplaçons le retour de la méthode `render` par 
+C'est parce que la variable `rep`, qui se trouve dans la méthode `render` du composant `RepositoriesList` est un tableau vide. On va donc ajouter une petite condition pour voir ça. Remplaçons le retour de la méthode `render` par
 
 ```tsx
-return rep.length > 0 ? rep : 'No results found...';
+return rep.length > 0 ? rep : "No results found...";
 ```
 
 Rechargez la page, et vous devriez voir
 
-![](./images/4.png)
+![](/images/4.png)
 
 Maintenant que l'affichage se comporte correctement quand notre liste est vide, il serait peut être temps de la remplir !
 
@@ -190,10 +195,10 @@ $ npm install --save axios
 
 Cela va copier tous les fichiers nécessaires à l'utilisation de la librairie, dans le dossier `node_modules` de notre projet. Ça veut donc dire qu'on va enfin pouvoir récupérer des données!
 
-On va maintenant importer axios dans notre composant. Pour ça, ajouter la ligne 
+On va maintenant importer axios dans notre composant. Pour ça, ajouter la ligne
 
 ```tsx
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
 ```
 
 en haut du fichier `RepositoriesList.tsx`. Ensuite on va ajouter la méthode `componentDidMount` à notre composant.
@@ -209,7 +214,7 @@ public componentDidMount() {
 
 Si vous sauvegardez et rechargez la page, vous devriez avoir la chose suivante
 
-![](./images/5.png)
+![](/images/5.png)
 
 On va faire une petite pause dans le code pour comprendre tout ce qu'il se passe.
 
@@ -217,7 +222,7 @@ On va faire une petite pause dans le code pour comprendre tout ce qu'il se passe
 
 On vient juste d'implémenter la méthode `componentDidMount` de notre composant. Cette méthode est une méthode du cycle de vie d'un composant, que l'on hérite de la classe `Component` de React.
 
-![](./images/6.png)
+![](/images/6.png)
 
 Le cycle de vie des composants est composé de plusieurs phases, et donc de plusieurs méthodes que l'on peut redéfinir, mais pour cette formation on va se contenter des méthodes ci-dessus.
 
@@ -227,41 +232,41 @@ Comme le montre le schéma, l'appel à la méthode `componentDidMount` se fait j
 this.state.repositories = res.data.items;
 ```
 
-et cela aurait fonctionné, mais cette méthode est déconseillé car l'appel à la méthode `setState` permet non seulement de changer le *state* du composant, mais aussi de déclencher un nouveau rendu du composant, ce qui n'est pas le cas de la méthode ci-dessus.
+et cela aurait fonctionné, mais cette méthode est déconseillé car l'appel à la méthode `setState` permet non seulement de changer le _state_ du composant, mais aussi de déclencher un nouveau rendu du composant, ce qui n'est pas le cas de la méthode ci-dessus.
 
 ## C'est un peu vide quand même
 
 Pour l'instant on a juste afficher le nom des répositories de Github, on va rajouter un peu de contenu. Pour ça, on va créer un nouveau composant. Créez un nouveau fichier `src/components/Repository.tsx`, et remplissez le comme suit
 
 ```tsx
-import React, { Component } from 'react';
-import { GitHubRepo } from './RepositoriesList';
+import React, { Component } from "react";
+import { GitHubRepo } from "./RepositoriesList";
 
 export default class Repository extends Component<GitHubRepo> {
   public render() {
     const r = this.props;
 
     return (
-      <div className='Repository-root'>
-        <div className='Repository-header'>
-          <span className='Repository-name-block'>
-            <a className='Repository-url' href={`${r.html_url}`} target='blank'>
+      <div className="Repository-root">
+        <div className="Repository-header">
+          <span className="Repository-name-block">
+            <a className="Repository-url" href={`${r.html_url}`} target="blank">
               {r.owner.login}/<b>{r.name}</b>
             </a>
           </span>
-          <span className='Repository-stars'>{r.stargazers_count}</span>
-          <span className='Repository-issues'>{r.open_issues_count}</span>
-          <span className='Repository-forks'>{r.forks_count}</span>
+          <span className="Repository-stars">{r.stargazers_count}</span>
+          <span className="Repository-issues">{r.open_issues_count}</span>
+          <span className="Repository-forks">{r.forks_count}</span>
         </div>
-        <div className='Repository-description'>
+        <div className="Repository-description">
           <p>{r.description}</p>
         </div>
-        <div className='Repository-dates'>
-          <span className='Repository-date-created'>
+        <div className="Repository-dates">
+          <span className="Repository-date-created">
             {new Date(r.created_at).toLocaleString(navigator.language)}
           </span>
           &nbsp;
-          <span className='Repository-date-pushed'>
+          <span className="Repository-date-pushed">
             {new Date(r.pushed_at).toLocaleString(navigator.language)}
           </span>
         </div>
@@ -292,6 +297,6 @@ public render() : JSX.Element[] | string {
 
 Vous devriez obtenir quelque chose comme ça
 
-![](./images/7.png)
+![](/images/7.png)
 
 Voilà y a déjà plus de contenu ! Mais bon, c'est vachement moche...
