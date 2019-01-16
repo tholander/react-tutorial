@@ -1,0 +1,60 @@
+.Repository-root {
+  padding: 0.5em;
+  margin: 0.5em;
+
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 5px #777;
+
+  transition: linear 0.2s;
+}
+
+.Repository-root:hover {
+  transform: scale(1.01);
+}
+
+.Repository-name-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Repository-avatar {
+  width: 2em;
+  margin: 0.5em;
+}
+
+.Repository-stars,
+.Repository-issues,
+.Repository-forks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #888;
+}
+
+.Repository-description {
+  margin: 1em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #333;
+}
+
+.Repository-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Repository-dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  color: #888;
+}
