@@ -113,7 +113,7 @@ export default class Repository extends Component<GitHubRepo> {
 
 Cela devrait ressembler à ça
 
-![](/images/8.png)
+![](/react-tutorial/images/8.png)
 
 Ça a déjà un peu plus de gueule ! On va même pouvoir rajouter quelques petits éléments !
 
@@ -219,7 +219,7 @@ Et modifiez le JSX de la méthode `render` pour qu'il ressemble à ceci
 
 Le résultat a franchement de la gueule !
 
-![](/images/10.png)
+![](/react-tutorial/images/10.png)
 
 Maintenant que le composant `Repository` est suffisamment beau, on va bientôt pouvoir le laisser tranquille. Mais avant, on va simplifier un tout petit peu le composant. Vous avez peut être remarqué que le composant ne redéfini aucune méthode du cycle de vie, et n'utilise pas le `state`. C'est ce qu'on appelle un **composant stateless**. Et il y a une manière plus simple de déclarer un composant stateless. On peut le déclarer comme une fonction prenant des props et retournant des éléments JSX. Modifions donc le code pour le déclarer comme cela.
 

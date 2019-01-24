@@ -172,7 +172,7 @@ export default App;
 
 Après avoir sauvegardez, retournez voir dans votre navigateur, et vous devriez voir afficher... rien.
 
-![](/images/3.png)
+![](/react-tutorial/images/3.png)
 
 C'est parce que la variable `rep`, qui se trouve dans la méthode `render` du composant `RepositoriesList` est un tableau vide. On va donc ajouter une petite condition pour voir ça. Remplaçons le retour de la méthode `render` par 
 
@@ -182,7 +182,7 @@ return rep.length > 0 ? rep : 'No results found...';
 
 Rechargez la page, et vous devriez voir
 
-![](/images/4.png)
+![](/react-tutorial/images/4.png)
 
 Maintenant que l'affichage se comporte correctement quand notre liste est vide, il serait peut être temps de la remplir !
 
@@ -215,7 +215,7 @@ public componentDidMount() {
 
 Si vous sauvegardez et rechargez la page, vous devriez avoir la chose suivante
 
-![](/images/5.png)
+![](/react-tutorial/images/5.png)
 
 On va faire une petite pause dans le code pour comprendre tout ce qu'il se passe.
 
@@ -223,7 +223,7 @@ On va faire une petite pause dans le code pour comprendre tout ce qu'il se passe
 
 On vient juste d'implémenter la méthode `componentDidMount` de notre composant. Cette méthode est une méthode du cycle de vie d'un composant, que l'on hérite de la classe `Component` de React.
 
-![](/images/6.png)
+![](/react-tutorial/images/6.png)
 
 Le cycle de vie des composants est composé de plusieurs phases, et donc de plusieurs méthodes que l'on peut redéfinir, mais pour cette formation on va se contenter des méthodes ci-dessus.
 
@@ -301,6 +301,6 @@ public render() : JSX.Element[] | string {
 
 Vous devriez obtenir quelque chose comme ça
 
-![](/images/7.png)
+![](/react-tutorial/images/7.png)
 
 Voilà y a déjà plus de contenu ! Mais bon, c'est vachement moche...

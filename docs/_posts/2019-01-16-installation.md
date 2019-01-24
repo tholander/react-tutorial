@@ -133,7 +133,7 @@ $ npm run start
 
 Ça peut prendre un peu de temps, mais ça devrait ouvrir votre navigateur ou un nouvel onglet avec le contenu de l'application dedans. Si ça n'ouvre pas le navigateur ou l'onglet automatiquement (ça peut arriver), vous pouvez accéder à la page avec l'URL `http://localhost:3000`.
 
-![Page d'accueil](/images/1.png)
+![Page d'accueil](/react-tutorial/images/1.png)
 
 Vous pouvez donc voir la page d'accueil générée par la `create-react-app`. Pour faire notre petit test, on va juste modifier une ligne d'un fichier pour voir la modification en direct.
 
@@ -176,6 +176,6 @@ On décortiquera ce fichier plus tard, pour l'instant modifier simplement la lig
 Angular is for pussies
 ```
 
-![](/images/2.png)
+![](/react-tutorial/images/2.png)
 
 Maintenant que vous voyez à peu près comment ça marche, on va pouvoir commencer à coder un peu.
