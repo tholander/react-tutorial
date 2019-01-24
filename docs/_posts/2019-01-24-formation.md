@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Formation React"
-date:   2019-01-15 10:00:00 +0100
+date:   2019-01-24 09:49:44 +0100
 ---
-
 # Formation React
 
 Dans cette formation, on va prendre un projet React de bout en bout. On va donc commencer par installer tout le nécessaire pour faire un projet, créer le projet, le coder, et le "déployer".
