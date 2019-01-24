@@ -23,7 +23,7 @@ github_username:  tholander
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-slate
+theme: minima
 plugins:
   - jekyll-feed
 
@@ -38,5 +38,3 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-theme: jekyll-theme-slate
