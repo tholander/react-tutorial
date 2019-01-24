@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Installations"
+title:  "Installation"
+date:   2019-01-16 10:00:00 +0100
 ---
 
 # Installation
@@ -11,7 +12,7 @@ Du coup pour ceux qui liraient ce document et qui ne sont pas sous Linux, je vou
 
 ## Installer NodeJS
 
-À la base, NodeJS est un logiciel qui a été créé pour exécuter du JavaScript coté serveur, mais il est aussi utile pour le développement d'application frontend, principalement parce que NodeJS nous fournit NPM. Déjà, NPM est un acronyme pour Node Packages Manager. Et un acronyme c'est une abréviation pour... non je déconne !
+À la base, NodeJS est un logiciel qui a été créé pour exécuter du JavaScript coté serveur, mais il est aussi utile pour le développement d'application frontend, principalement parce que NodeJS nous fournit NPM.  Déjà, NPM est un acronyme pour Node Packages Manager. Et un acronyme c'est une abréviation pour... non je déconne !
 
 NPM c'est donc un gestionnaire de paquets pour JavaScript. Il a été créé pour NodeJS mais il est utilisable pour n'importe quel projet qui utilise du JavaScript. Mais au delà d'un gestionnaire de paquets, c'est aussi un utilitaire qui permet de facilement exécuter certaine commandes bien utiles pour le développement, les tests, etc.
 
@@ -89,7 +90,12 @@ On va commencer par le plus important, le fichier `package.json`. C'est un fichi
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
 ```
 
@@ -98,7 +104,7 @@ En revanche, les champs suivants sont beaucoup plus intéressants !
 
 ### Dépendances
 
-Le champs `dependencies` est le champs qui va décrire tous les paquets NPM dont dépend le bon fonctionnement de notre application. On a donc les paquets `react` et `react-dom` qui sont des paquets essentiels à n'importe quelle application développé avec React. `react` contient tous les objets et toutes les fonctions nécessaires à la création de composants React, tandis qui `react-dom` contient tout le nécessaire pour lier des composants React au DOM du navigateur _(le DOM c'est une espèce d'interface qui permet d'avoir accès et de modifier le contenu HTML d'une page web)_ .
+Le champs `dependencies` est le champs qui va décrire tous les paquets NPM dont dépend le bon fonctionnement de notre application. On a donc les paquets `react` et `react-dom` qui sont des paquets essentiels à n'importe quelle application développé avec React. `react` contient tous les objets et toutes les fonctions nécessaires à la création de composants React, tandis qui `react-dom` contient tout le nécessaire pour lier des composants React au DOM du navigateur *(le DOM c'est une espèce d'interface qui permet d'avoir accès et de modifier le contenu HTML d'une page web)* .
 Le paquet `react-scripts-ts` contient un ensemble de scripts, qui ne vont pas nous servir dans le code de notre application, mais qui par contre, nous sont bien utiles pour la mise en place des environnements de développement et de production. J'explique juste après.
 
 ### Scripts
@@ -109,17 +115,17 @@ Le champs `scripts` décrit différents alias pour formaliser l'appel à des scr
 $ npm run <nom_du_script>
 ```
 
-Par exemple, si on exécute la commande
+ Par exemple, si on exécute la commande 
 
-```bash
+```bash 
  $ npm run start
 ```
 
-Ça appellera en fait la commande `react-scripts-ts start`. Déjà parce que c'est plus simple à se rappeler, mais aussi parce que c'est une norme que tout le monde adopte. Ça veut donc dire que peut importe que vous soyez développeur, ops, ou testeur, si vous devez lancer une application qui utilise `npm`, peu importe la manière dont elle a été faite et les librairies qu'elle utilise, vous savez que vous la lancerez toujours avec `npm run start`.
+Ça appellera en fait la commande `react-scripts-ts start`. Déjà parce que c'est plus simple à se rappeler, mais aussi parce que c'est une norme que tout le monde adopte. Ça veut donc dire que peut importe que vous soyez développeur, ops, ou testeur, si vous devez lancer une application qui utilise `npm`, peu importe la manière dont elle a été faite et les librairies qu'elle utilise, vous savez que vous la lancerez toujours avec ```npm run start```.
 
 > Mais du coup `react-scripts-ts start` ça fait quoi ?
 
-`react-scripts-ts start` va lancer plein de trucs, mais ce qui nous intéresse le plus, c'est que ça va lancer un faux serveur web, qui fournira l'application à l'adresse `http://localhost:3000`, et que ce serveur va recharger l'application et la page web à chaque modification du code. On va faire un petit test. Lancez la commande
+`react-scripts-ts start` va lancer plein de trucs, mais ce qui nous intéresse le plus, c'est que ça va lancer un faux serveur web, qui fournira l'application à l'adresse `http://localhost:3000`, et que ce serveur va recharger l'application et la page web à chaque modification du code. On va faire un petit test. Lancez la commande 
 
 ```bash
 $ npm run start
@@ -131,27 +137,27 @@ $ npm run start
 
 Vous pouvez donc voir la page d'accueil générée par la `create-react-app`. Pour faire notre petit test, on va juste modifier une ligne d'un fichier pour voir la modification en direct.
 
-Avec votre éditeur préféré _(je vous conseille vraiment Visual Studio Code)_, ouvrez le fichier `src/App.tsx`. Vous devriez y trouver ceci
+Avec votre éditeur préféré *(je vous conseille vraiment Visual Studio Code)*, ouvrez le fichier `src/App.tsx`. Vous devriez y trouver ceci 
 
 ```tsx
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class App extends Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className='App'>
+        <header className='App-header'>
+          <img src={logo} className='App-logo' alt='logo' />
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
           <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+            className='App-link'
+            href='https://reactjs.org'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Learn React
           </a>
@@ -164,7 +170,7 @@ class App extends Component {
 export default App;
 ```
 
-On décortiquera ce fichier plus tard, pour l'instant modifier simplement la ligne 12 et la remplacer par
+On décortiquera ce fichier plus tard, pour l'instant modifier simplement la ligne 12 et la remplacer par 
 
 ```
 Angular is for pussies

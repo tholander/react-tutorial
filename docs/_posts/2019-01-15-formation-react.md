@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Introduction"
+title:  "Formation React"
+date:   2019-01-15 10:00:00 +0100
 ---
 
 # Formation React
@@ -19,7 +20,7 @@ React c'est une librairie JavaScript créée et maintenue par Facebook, qui perm
 
   Mais bon, rassurez vous, on des ingénieurs, on va pas coder comme des techniciens. Du coup on va faire du TypeScript !
 
-  TypeScript c'est un langage qui a été créé par Microsoft ​ mais je vous jure en vrai il est bien ! Tellement bien qu'il est utilisé en interne par les mecs de Google. En gros c'est un langage qui ressemble beaucoup à JavaScript, mais qui introduit quelques concepts cool de programmation objet (genre les interfaces !) et surtout, des types. Une fois qu'on a fini du code en TypeScript, on le transpile pour qu'il soit transformé en JavaScript, parce que les navigateurs savent pas interprétés du TypeScript.
+  TypeScript c'est un langage qui a été créé par Microsoft ​ mais je vous jure en vrai il est bien ! Tellement bien qu'il est utilisé en interne par les mecs de Google. En gros c'est un langage qui ressemble beaucoup à JavaScript, mais qui introduit quelques concepts cool de programmation objet (genre les interfaces !) et surtout, des types. Une fois qu'on a fini du code en TypeScript, on le transpile pour qu'il soit transformé en JavaScript, parce que les navigateurs savent pas interprétés du TypeScript.  
 
 - Facebook
 
@@ -27,7 +28,7 @@ React c'est une librairie JavaScript créée et maintenue par Facebook, qui perm
 
 - Single page application
 
-  Une _single-page app_ c'est une application web, qui en vérité est physiquement une page web. Concrètement, une application React en production, c'est :
+  Une *single-page app* c'est une application web, qui en vérité est physiquement une page web. Concrètement, une application React en production, c'est :
 
   - 1 fichier HTML
   - 1 fichier Javascript
@@ -39,7 +40,7 @@ React c'est une librairie JavaScript créée et maintenue par Facebook, qui perm
 
 - Composant
 
-  Un composant en React, c'est une classe, qui possède obligatoirement une méthode _render_ qui doit retourner l'équivalent en JSX de ce à quoi doit ressembler le composant dans la page web.
+  Un composant en React, c'est une classe, qui possède obligatoirement une méthode *render* qui doit retourner l'équivalent en JSX de ce à quoi doit ressembler le composant dans la page web.
 
   Bon ok maintenant je dois expliquer ce qu'est JSX. C'est un peu comme de l'HTML, mais du HTML dans lequel tu peux ajouter facilement du JavaScript. On va en voir plein partout, donc je vais pas aller plus loin dans mon explication, parce que vous vous rendrez compte au fur et à mesure de tout ce qui est possible.
 
