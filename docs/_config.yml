@@ -23,6 +23,7 @@ github_username:  tholander
 
 # Build settings
 markdown: kramdown
+theme: jekyll-theme-slate
 plugins:
   - jekyll-feed
 
