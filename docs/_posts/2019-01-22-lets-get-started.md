@@ -207,7 +207,7 @@ en haut du fichier `RepositoriesList.tsx`. Ensuite on va ajouter la méthode `co
 ```tsx
 public componentDidMount() {
     const url: string = RepositoriesList.formatUrl(this.props.language);
-    axios.get(url).then(function(res: AxiosResponse) {
+    axios.get(url).then((res: AxiosResponse) => {
       this.setState({ repositories: res.data.items });
     });
   }
